@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d6dd2f881003f434f3151d2ac3ca0b4f",
+    "content-hash": "74e7b6753d194aa3a494075e88b53bc6",
     "packages": [
         {
             "name": "brick/math",
@@ -1122,6 +1122,61 @@
                 "source": "https://github.com/inertiajs/inertia-laravel/tree/v2.0.6"
             },
             "time": "2025-08-26T06:17:48+00:00"
+        },
+        {
+            "name": "lakm/person-name",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Lak-M/person-name.git",
+                "reference": "dce354cb4e49885f823bf15567f57c6c21c19666"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Lak-M/person-name/zipball/dce354cb4e49885f823bf15567f57c6c21c19666",
+                "reference": "dce354cb4e49885f823bf15567f57c6c21c19666",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.3"
+            },
+            "require-dev": {
+                "larapack/dd": "^1.1",
+                "laravel/pint": "^1.24",
+                "pestphp/pest": "^3.8",
+                "phpstan/phpstan": "^2.1",
+                "rector/rector": "^2.1"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tests\\": "tests",
+                    "Lakm\\PersonName\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lakshan Madushanka",
+                    "email": "epmadushanka@gmail.com"
+                }
+            ],
+            "description": "Format personal names in various styles-full, abbreviated, familiar, etc. based on country specific conventions",
+            "support": {
+                "issues": "https://github.com/Lak-M/person-name/issues",
+                "source": "https://github.com/Lak-M/person-name/tree/main"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/Lakshan-Madushanka",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-09-01T11:10:44+00:00"
         },
         {
             "name": "laravel/framework",
@@ -8527,8 +8582,10 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": {},
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "lakm/person-name": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

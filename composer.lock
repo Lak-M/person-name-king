@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "74e7b6753d194aa3a494075e88b53bc6",
+    "content-hash": "8436ac1d6c1a435b9245e5e1e62a971b",
     "packages": [
         {
             "name": "brick/math",
@@ -1129,12 +1129,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Lak-M/person-name.git",
-                "reference": "dce354cb4e49885f823bf15567f57c6c21c19666"
+                "reference": "60a1e3eb8b7401d30b90d827f63ab7b8b519c7e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Lak-M/person-name/zipball/dce354cb4e49885f823bf15567f57c6c21c19666",
-                "reference": "dce354cb4e49885f823bf15567f57c6c21c19666",
+                "url": "https://api.github.com/repos/Lak-M/person-name/zipball/60a1e3eb8b7401d30b90d827f63ab7b8b519c7e0",
+                "reference": "60a1e3eb8b7401d30b90d827f63ab7b8b519c7e0",
                 "shasum": ""
             },
             "require": {
@@ -1176,7 +1176,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-09-01T11:10:44+00:00"
+            "time": "2025-09-03T05:43:23+00:00"
         },
         {
             "name": "laravel/framework",
@@ -8589,7 +8589,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.2"
+        "php": "^8.3"
     },
     "platform-dev": {},
     "plugin-api-version": "2.6.0"

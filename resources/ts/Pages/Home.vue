@@ -90,7 +90,12 @@ function submit() {
                 <SelectButton v-model="mode" :options="modeOptions" class="shadow" :allowEmpty="false"/>
                 <span class="font-bold">Mode</span>
             </div>
-            <span class="inline-flex items-center gap-2 shadow px-2"><i class="pi pi-github !text-xl"/> <span>GitHub</span></span>
+            <a href="https://github.com/Lak-M/person-name-king">
+                <span class="inline-flex items-center gap-2 shadow p-2">
+                    <i class="pi pi-github !text-xl"/>
+                    <span>GitHub</span>
+                </span>
+            </a>
         </div>
 
         <TransitionGroup name="mode">

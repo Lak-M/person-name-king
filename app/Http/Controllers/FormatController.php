@@ -25,7 +25,7 @@ final class FormatController extends Controller
             'country' => ['nullable', new CountryRule],
         ]);
 
-        $pn = PersonName::fromFullName($validated['full_name'], !empty($validated['country']) ? $this->getCountry($validated['country']) : null);
+        $pn = PersonName::fromFullName($validated['full_name'], ! empty($validated['country']) ? $this->getCountry($validated['country']) : null);
 
         return $this->response($pn);
     }
@@ -41,7 +41,7 @@ final class FormatController extends Controller
             'country' => ['nullable', new CountryRule],
         ]);
 
-        $country = !empty($validated['country']) ? $this->getCountry($validated['country']) : null;
+        $country = ! empty($validated['country']) ? $this->getCountry($validated['country']) : null;
 
         $pn = PersonName::build(
             firstName: $validated['first_name'],
@@ -91,9 +91,9 @@ final class FormatController extends Controller
         foreach ($parts as $part => $val) {
             $method = Str::camel($part);
 
-            if (!method_exists($pn, $method)) {
+            if (! method_exists($pn, $method)) {
                 $method .= 'Name';
-                if (!method_exists($pn, $method)) {
+                if (! method_exists($pn, $method)) {
                     break;
                 }
             }

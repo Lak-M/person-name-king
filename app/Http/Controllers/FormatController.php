@@ -21,11 +21,11 @@ final class FormatController extends Controller
     public function formatFullName(Request $request)
     {
         $validated = $request->validate([
-            'full_name' => ['string', 'required'],
-            'country' => new CountryRule,
+            'full_name' => ['required', 'string'],
+            'country' => ['nullable', new CountryRule],
         ]);
 
-        $pn = PersonName::fromFullName($validated['full_name'], isset($validated['country']) ? $this->getCountry($validated['country']) : null);
+        $pn = PersonName::fromFullName($validated['full_name'], !empty($validated['country']) ? $this->getCountry($validated['country']) : null);
 
         return $this->response($pn);
     }
@@ -33,15 +33,15 @@ final class FormatController extends Controller
     public function formatNameParts(Request $request)
     {
         $validated = $request->validate([
-            'first_name' => ['string', 'required'],
-            'middle_name' => ['string'],
-            'last_name' => ['string'],
-            'prefix' => ['string'],
-            'suffix' => ['string'],
-            'country' => new CountryRule,
+            'first_name' => ['required', 'string'],
+            'middle_name' => ['nullable', 'string'],
+            'last_name' => ['nullable', 'string'],
+            'prefix' => ['nullable', 'string'],
+            'suffix' => ['nullable', 'string'],
+            'country' => ['nullable', new CountryRule],
         ]);
 
-        $country = isset($validated['country']) ? $this->getCountry($validated['country']) : null;
+        $country = !empty($validated['country']) ? $this->getCountry($validated['country']) : null;
 
         $pn = PersonName::build(
             firstName: $validated['first_name'],
@@ -68,6 +68,7 @@ final class FormatController extends Controller
     private function getData(NameBuilderContract $pn): array
     {
         $parts = [
+            'full' => null,
             'first' => null,
             'middle' => null,
             'last' => null,
@@ -89,12 +90,18 @@ final class FormatController extends Controller
 
         foreach ($parts as $part => $val) {
             $method = Str::camel($part);
-            if (method_exists($pn, $method)) {
-                try {
-                    $parts[$part] = $pn->{$method}();
-                } catch (PartNotSupportException|FormatNotSupportException $exception) {
-                    $parts[$part] = 'Not Supported';
+
+            if (!method_exists($pn, $method)) {
+                $method .= 'Name';
+                if (!method_exists($pn, $method)) {
+                    break;
                 }
+            }
+
+            try {
+                $parts[$part] = $pn->{$method}();
+            } catch (PartNotSupportException|FormatNotSupportException $exception) {
+                $parts[$part] = 'Not Supported';
             }
         }
 

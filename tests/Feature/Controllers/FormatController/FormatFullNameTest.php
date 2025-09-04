@@ -70,6 +70,7 @@ final class FormatFullNameTest extends TestCase
             $response->assertInertia(fn (Assert $page) => $page
                 ->component('Home')
                 ->has('name', fn (Assert $page) => $page
+                    ->where('full', 'Prof. Dr. Maria Anna de la Vega III PhD')
                     ->where('first', 'Maria')
                     ->where('middle', 'Anna')
                     ->where('last', 'de la Vega')

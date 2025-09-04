@@ -121,7 +121,7 @@ function submit() {
                     />
                     <PrimeButton label="Format" @click="submit" :loading="form.processing" class="mt-2 md:mt-0"/>
                 </div>
-                <div v-if="page.props?.name && dataObtainedMode === Mode.Full" class="mt-8 w-full">
+                <div v-if="page.props?.name && dataObtainedMode === Mode.Full" class="mt-8 w-full px-4 lg:px-0">
                     <DataList :parts="page.props.name"/>
                 </div>
             </div>
@@ -159,7 +159,7 @@ function submit() {
                     </div>
                     <PrimeButton label="Format" @click="submit" :loading="form.processing" class="md:col-span-2 mt-2"/>
                 </div>
-                <div v-if="page.props?.name && dataObtainedMode === Mode.Parts" class="mt-8 w-full">
+                <div v-if="page.props?.name && dataObtainedMode === Mode.Parts" class="mt-8 w-full px-4 lg:px-0">
                     <DataList :parts="page.props.name"/>
                 </div>
             </div>

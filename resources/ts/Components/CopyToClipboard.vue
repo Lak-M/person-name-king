@@ -31,7 +31,7 @@ async function copyToClipboard(text: string|string[]) {
 <template>
     <div class="relative">
         <i class="pi pi-clipboard cursor-pointer !text-xs text-[var(--p-sky-500)]" @click="copy(text)"></i>
-        <span v-if="isCopied" class="absolute min-w-24 text-xs -top-2 lg:right-0 lg:left-6 -right-4 italic">copied ✔️</span>
+        <span v-if="isCopied" class="absolute min-w-24 text-xs -top-2 lg:right-0 lg:left-4 -right-8 italic">copied ✔️</span>
     </div>
 </template>
 

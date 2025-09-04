@@ -7,6 +7,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
+use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Validation\ValidationException;
 use Lakm\PersonName\Exceptions\InvalidNameException;
 
@@ -17,14 +18,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        $middleware->web(
-            append: [
-                HandleInertiaRequests::class,
-            ],
-            remove: [
-               VerifyCsrfToken::class,
-            ]
-        );
+        $middleware
+            ->web(append: [HandleInertiaRequests::class,])
+            ->validateCsrfTokens(['/*']);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->render(function (InvalidNameException $exception): void {
